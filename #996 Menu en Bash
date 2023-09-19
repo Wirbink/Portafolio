@@ -1,0 +1,81 @@
+Código Menú:
+
+#!bin/bash
+
+SCRIPT=""
+
+while true
+do
+    echo" ███▄ ▄███▓▓█████  ███▄    █  █    ██ 
+    ▓██▒▀█▀ ██▒▓█   ▀  ██ ▀█   █  ██  ▓██▒
+    ▓██    ▓██░▒███   ▓██  ▀█ ██▒▓██  ▒██░
+    ▒██    ▒██ ▒▓█  ▄ ▓██▒  ▐▌██▒▓▓█  ░██░
+    ▒██▒   ░██▒░▒████▒▒██░   ▓██░▒▒█████▓ 
+    ░ ▒░   ░  ░░░ ▒░ ░░ ▒░   ▒ ▒ ░▒▓▒ ▒ ▒ 
+    ░  ░      ░ ░ ░  ░░ ░░   ░ ▒░░░▒░ ░ ░ 
+    ░      ░      ░      ░   ░ ░  ░░░ ░ ░ 
+           ░      ░  ░         ░    ░     
+                                      "
+                                      
+          echo -e "\n1.- Arbol de directorios"
+          echo "2.- Hola mundo"
+          echo "3.- Saludo usando variables"
+          echo -e "x.- SALIR\n\n"
+          
+          echo -n "Selecciona un script: "
+          read SCRIPT
+          
+          case ${SCRIPT} in
+              1)
+                  source arbol_directorios
+                  ;;
+        2)
+            source holamundo.sh
+            ;;
+        3)
+            source holanombre.sh
+            ;;
+        x)
+            break
+            ;;
+        *)
+            echo "Esa opcion no existe, ingrese una valida"
+    esac
+done
+
+Código Hola Mundo:
+
+#!bin/bash
+
+echo -e "\033[40m\033[36m Este script dice:  \033[0m"
+echo -e "\033[40m\033[35m \nHola Mundo \033[0m
+
+Código Saludo con Variables:
+
+#!bin/bash
+
+NOMBRE=""
+
+echo -n "Ingresa tu nombre: "
+read NOMBRE
+
+echo -e "\033[40m\033[36m Este script dice:  \033[0m"
+echo -e "\033[40m\033[35m \nHola ${NOMBRE} \033[0m"
+
+Código Arbol de directorios:
+
+#!bin/bash
+
+mkdir ArbolDirectorios
+mkdir ArbolDirectorios/dos
+mkdir ArbolDirectorios/seis
+mkdir ArbolDirectorios/tres
+mkdir ArbolDirectorios/tres/cuatro
+mkdir ArbolDirectorios/tres/cuatro/cinco
+touch ArbolDirectorios/seis/holamundo.sh
+touch ArbolDirectorios/seis/holanombre.sh
+touch ArbolDirectorios/tres/file3.txt
+mkdir ArbolDirectorios/uno
+touch ArbolDirectorios/uno/test.txt
+bash ArbolDirectorios/seis/holamundo.sh
+bash ArbolDirectorios/seis/holanombre.sh
