@@ -1,0 +1,431 @@
+Coyolt Oliveros Irving Ramón 27BV
+
+Level 0:
+
+┌──(irving㉿kali)-[~]
+└─$ ssh bandit0@bandit.labs.overthewire.org -p 2220
+
+
+Level 0 -> Level 1
+
+bandit0@bandit:~$ ls
+bandit0@bandit:~$ ls -la
+bandit0@bandit:~$ find . -type f -exec file {} + | grep ASCII
+bandit0@bandit:~$ cat readme
+NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+
+Level 1 -> Level 2
+
+bandit1@bandit:~$ ls
+bandit1@bandit:~$ cd ..
+bandit1@bandit:~$ cat bandit1/-
+rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+
+Level 2 -> Level 3
+
+bandit2@bandit:~$ ls -la
+bandit1@bandit:~$ cat spaces\ in\ this\ filename
+aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+
+Level 3 -> Level 4
+
+bandit3@bandit:~$ ls -la
+bandit3@bandit:~$ cd inhere
+bandit3@bandit:~/inhere$ ls -la
+bandit3@bandit:~/inhere$ cat .hidden
+2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+
+Level 4 -> Level 5
+
+bandit4@bandit:~$ ls
+bandit4@bandit:~$ cd inhere
+bandit4@bandit:~/inhere$ ls -la
+bandit4@bandit:~/inhere$ find . -type f -exec file {} + | grep ASCII
+bandit4@bandit:~/inhere$ cat -- \-file07
+lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+
+Level 5 -> Level 6
+
+bandit5@bandit:~$ cd inhere
+bandit5@bandit:~/inhere$ ls
+bandit5@bandit:~/inhere$ find . \
+> -type f \
+> -size 1033c \
+> -not -executable \
+> -exec file {} + \
+> | grep ASCII
+bandit5@bandit:~/inhere$ cat maybehere07/.file2
+P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+
+Level 6 -> Level 7
+
+bandit6@bandit:~$ cd /
+bandit6@bandit:/$ ls
+bandit6@bandit:/$ find . -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null -exec file {} + | grep ASCII
+bandit6@bandit:/$ cat ./var/lib/dpkg/info/bandit7.password
+z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+
+Level 7 -> Level 8
+
+bandit7@bandit:~$ grep -wi 'millionth' data.txt
+millionth TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+
+Level 8 -> Level 9
+
+bandit8@bandit:~$ man uniq
+bandit8@bandit:~$ cat data.txt | sort | uniq -u
+EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+
+Level 9 -> Level 10
+
+bandit9@bandit:~$ strings data.txt | grep -wi '=='
+x]T========== theG)"
+========== passwordk^
+========== is
+========== G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+
+Level 10 -> Level 11
+
+bandit10@bandit:~$ cat data.txt | base64 --decode
+The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+
+Level 11 -> Level 12
+
+bandit11@bandit:~$ cat data.txt
+Gur cnffjbeq vf WIAOOSFzMjXXBC0KoSKBbJ8puQm5lIEi
+
+Password con rot13.com = JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+
+Level 12 -> Level 13
+
+bandit12@bandit:~$ cd ~
+bandit12@bandit:~$ cat data.txt
+bandit12@bandit:~$ man xxd
+bandit12@bandit:~$ mkdir /tmp/example
+bandit12@bandit:~$ cp data.txt /tmp/example
+bandit12@bandit:~$ cd /tmp/example
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ xxd -r data.txt > data
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file data
+bandit12@bandit:~$ man gzip
+bandit12@bandit:~$ mv data file.gz
+bandit12@bandit:~$ gzip -d file.gz
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file file
+bandit12@bandit:~$ mv file file.bz2
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file file
+bandit12@bandit:~$ mv file file.gz
+bandit12@bandit:~$ gzip -d file.gz
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file file
+bandit12@bandit:~$ mv file file.tar
+bandit12@bandit:~$ tar xf file.tar
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file data5.bin
+bandit12@bandit:~$ rm file.tar
+bandit12@bandit:~$ rm data.txt
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file data5.bin
+bandit12@bandit:~$ mv data5.bin data.tar
+bandit12@bandit:~$ tar xf data.tar
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file data6.bin
+bandit12@bandit:~$ mv data6.bin data.bz2
+bandit12@bandit:~$ bzip2 -d data bz2
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file data
+bandit12@bandit:~$ bzip2 -d data.bz2
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file data
+bandit12@bandit:~$ mv data data.tar
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ tar xf data.tar
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file data8.bin
+bandit12@bandit:~$ mv data8.bin data.gz
+bandit12@bandit:~$ gzip -d data.gz
+bandit12@bandit:~$ ls
+bandit12@bandit:~$ file data
+bandit12@bandit:~$ cat data
+wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+
+Level 13 -> Level 14
+
+bandit13@bandit:~$ ls
+bandit13@bandit:~$ ssh -i sshkey.private bandit14@localhost
+bandit13@bandit:~$ cat /etc/bandit_pass/bandit14
+4wcYUJFwOKOXLShlDzztnTBHiqxU3b3e
+
+Level 14 -> Level 15
+
+bandit14@bandit:~$ cat /etc/bandit_pass/bandit14 | nc localhost 30000
+
+Level 15 -> Level 16
+
+bandit15@bandit:~$ openssl s_client -ign_eof -connect localhost:30001
+JQttfApK4SeyHwDlI9SXGR50qclOAil1
+
+Level 16 -> Level 17
+
+bandit16@bandit:~$ netstat  -lntu
+bandit16@bandit:~$ nmap -p 31000-32000 localhost
+bandit16@bandit:~$ /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31790 -bandit16@bandit:~$ quiet
+bandit16@bandit:~$ mkdir /tmp/bannn
+bandit16@bandit:~$ cd /tmp/bannn
+bandit16@bandit:~$ nano sshkey.private 
+bandit16@bandit:~$ chmod 400 sshkey.private
+bandit16@bandit:~$ ssh -i sshkey.private bandit17@bandit.labs.overthewire.org -p 2220
+
+VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
+
+Level 17 -> Level 18
+
+
+bandit17@bandit:~$ diff passwords.new passwords.old 
+hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+
+Level 18 -> Level 19
+
+bandit18@bandit:~$ man ssh 
+bandit18@bandit:~$ man ssh | grep shell
+bandit18@bandit:~$ man ssh | grep terminal
+bandit18@bandit:~$ ssh -t bandit18@bandit.labs.overthewire.org -p 2220 /bin/sh
+bandit18@bandit:~$ ls
+bandit18@bandit:~$ cat readme
+IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+
+Level 19 -> Level 20
+ls
+./bandit20-do
+./bandit20-do id
+./bandit20-do ls
+./bandit20-do cat /etc/bandit_pass/bandit20
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+Level 20 -> Level 21
+ls
+./suconnect
+nmap -F localhost
+exit
+bash
+ssh bandit20@bandit.labs.overthewire.org -p 2220
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+cat /etc/bandit_pass/bandit20 | nc -l localhost -p 1234
+./suconnect 1234
+gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+
+level 21 -> level 22
+cat /etc/cron.d/
+vim /etc/cron.d/
+ls /etc/cron.d/
+cat /etc/cron.d/cronjob_bandit22
+cat /usr/bin/cronjob_bandit22.sh
+cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+
+Level 22 -> Level 23
+cat /etc/cron.d/cronjob_bandit23
+cat /usr/bin/cronjob_bandit23.sh
+whoami
+$myname
+man md5sum
+echo I am user $myname | md5sum | cut -d ' ' -f 1
+cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+Level 23 -> Level 24
+cat /etc/cron.d/cronjob_bandit24
+cat /usr/bin/cronjob_bandit24.sh
+cat var/spool/
+vim test.sh
+ls
+cd /tmp/aiden
+ls
+rm data
+cd ..
+mkdir irvingggg
+cd irvingggg
+vim test.sh
+cat /etc/bandit_pass/bandit24 > /tmp/irvingggg
+ls
+chmod 777 test.sh
+vim test.sh
+cat /etc/bandit_pass/bandit24 > /tmp/irvingggg/pass
+touch pass
+chmod 777 pass
+ls
+cp test.sh /var/spool/bandit24/
+ls -alps
+cat pass
+cat pass
+cat test.sh
+cat pass
+cron
+cat pass
+cat pass
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+Level 24 -> Level 25 
+mkdir /tmp/youtube
+cd /tmp/youtube
+nc localhost 30002
+vim brute.sh
+#!/bin/bash
+bandit24=UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+for pin in {0000..9999}; do
+echo "$bandit24 $pin" | nc localhost 30002
+done
+chmod 777 brute.sh
+./brute.sh
+im brute.sh
+vim brute.sh
+./brute.sh
+uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+
+Level 25 -> Level 26
+ls
+ssh -i bandit26.sshkey bandit26@localhost
+cat /etc/passwd | grep bandit26
+cat /etc/shells
+cat /usr/bin/showtext
+STERM
+cat /home/bandit26/text.txt
+showtext
+touch text.txt
+whatis more
+man more
+man ssh | grep terminal
+ssh -t -i bandit26.sshkey bandit26@localhost /bin/bash
+ssh -T -i bandit26.sshkey bandit26@localhost
+ssh -T -i bandit26.sshkey bandit26@localhost /bin/bash
+cat /usr/bin/showtext
+man more | grep exec
+man more | grep command
+ls
+more bandit26.sskey
+ls
+ssh -i bandit26.sshkey bandit26@localhost :
+more bandit26.sshkey
+man vi | grep exec
+more bandit26.sskey
+:e /etc/bandit_pass/bandit25
+ssh -t -i bandit26.sshkey bandit26@localhost
+ls -alpsh /home/bandit26/
+ssh -t -i bandit26.sshkey bandit26@localhost /bin/sh
+:e /etc/bandit_pass/bandit26
+5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+:set shell=/bin/bash
+:shell
+
+Level 26 -> Level 27
+chsh
+ls
+./bandit27-do
+./bandit27-do cat /etc/bandit_pass/bandit27
+3ba3118a22e93127a4ed485be72ef5ea
+
+Level 27 -> Level 28
+cat /etc/bandit_pass/bandit27
+touch test
+mkdir /tmp/irvingtest
+mkdir /tmp/irving
+cd /tmp/irving
+git
+ssh://bandit27-git@localhost/home/bandit27-git/repo
+git clone 
+ls -al
+cd repo/
+ls -al
+cat README
+0ef186ac70e04ea33b4c1853d2526fa2
+
+Level 28 -> Level 29
+pass=0ef186ac70e04ea33b4c1853d2526fa2
+mkdir /tmp/irving
+cd /tmp/irving
+git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
+ls -al
+cd repo/
+ls
+ls -al
+cat README.md
+git log
+git branch
+git checkout 186a1038cc54d1358d42d468cdc8e3cc28a93fcb
+cat README.md
+bbc96594b4e001778eee9975372716b2
+
+Level 29 -> Level 30
+Comandos:
+ls
+pass=bbc96594b4e001778eee9975372716b2
+mkdir /tmp/irving
+cd /tmp/brayn000
+git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+ls -al
+cd repo
+ls
+ls -al
+cat README.md
+git brach
+git branch -r
+git checkout dev
+git log
+cat README.md
+5b90576bedb2cc04c86a9e924ce42faf
+
+Level 30 -> Level 31
+Comandos:
+shell=5b90576bedb2cc04c86a9e924ce42faf
+mkdir /tpm/irving
+cd /tmp/irving
+git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
+5b90576bedb2cc04c86a9e924ce42faf
+cd repo/
+ls
+ls -al
+cat README.md
+git log
+git branch
+git branch -r
+cat README.md
+git tag
+git show tag
+git show secret
+PASSWORD: 47e603bb428404d265f59c42920d81e5
+
+Level 31 -> Level 32
+Comandos:
+shell=47e603bb428404d265f59c42920d81e5
+mkdir /tmp/irvingg
+cd /tmp/irvingg
+git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
+47e603bb428404d265f59c42920d81e5
+ls
+cd repo
+ls -al
+cat .gitignore
+cat README.md
+git branch
+ls -al
+rm .gitignore
+echo "May I come in?" > key.txt
+cat key.txt
+git add key.txt
+git commit -m "Added key.txt"
+git push
+47e603bb428404d265f59c42920d81e5
+PASSWORD: 56a9bf19c63d650ce78e6ec0354ee45e
+
+Level 32 -> Level 33
+Comandos:
+$SHELL
+$EUID
+$0
+export SHELL=/bin/bash
+echo $SHELL
+$SHELL
+cat /etc/bandit_pass/bandit33
+PASSWORD: c9c3199ddf4121b10cf581a98d51caee
